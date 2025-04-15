@@ -1,1 +1,24 @@
-print('hi')
+def Read_List_File(
+                  FILE_LIST,
+                  LIST):
+    with open (FILE_LIST ,'r') as file:
+        length = file.readline()
+        length = int(length.replace('\n',''))
+        
+        for i in range(length):
+            element = file.readline()
+            element = element.replace('\n','')
+            LIST.append(element)
+            
+        return LIST
+
+def Save_List_File(
+                  FILE_LIST,
+                  LIST):
+    with open (FILE_LIST,'w') as file:
+        file.write('')
+    length = str(len(LIST))
+    with open (FILE_LIST,'a') as file:
+        file.write(length+'\n')
+        for element in LIST:
+            file.write(element+'\n')
